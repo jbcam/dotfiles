@@ -48,7 +48,11 @@
   mergeoptions = --no-edit
 
 [pull]
-  rebase = false
+  rebase = true
 
 [init]
   defaultBranch = master
+
+[user]
+	email = jbcamaret@lifen.fr
+	name = Jean-Baptiste Camaret
