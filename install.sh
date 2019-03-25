@@ -42,6 +42,10 @@ if [ ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
 fi
 cd "$CURRENT_DIR"
 
+# vscode as default git editor
+git config --global core.editor "code --wait"
+
+
 # # Symlink VS Code settings and keybindings to the present `settings.json` and `keybindings.json` files
 # # If it's a macOS
 # if [[ `uname` =~ "Darwin" ]]; then
