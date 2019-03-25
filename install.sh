@@ -40,6 +40,11 @@ cd "$CURRENT_DIR"
 
 
 # setopt nocasematch
+
+# vscode
+git config --global core.editor "code --wait"
+
+# Sublime Text
 # if [[ ! `uname` =~ "darwin" ]]; then
 #   git config --global core.editor "subl -n -w $@ >/dev/null 2>&1"
 #   echo 'export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"' >> zshrc
@@ -49,7 +54,15 @@ cd "$CURRENT_DIR"
 #   echo "export BUNDLER_EDITOR=\"${bundler_editor} -a\"" >> zshrc
 # fi
 
+# # vscode
+ln -s $PWD/VSCode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -s $PWD/VSCode/snippets/ ~/Library/Application\ Support/Code/User/snippets
+# ln -s $PWD/VSCode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+
+
+
 # # Sublime Text
+
 # if [[ ! `uname` =~ "darwin" ]]; then
 #   SUBL_PATH=~/.config/sublime-text-3
 # else
@@ -61,6 +74,11 @@ cd "$CURRENT_DIR"
 # ln -s $PWD/Preferences.sublime-settings $SUBL_PATH/Packages/User/Preferences.sublime-settings
 # ln -s $PWD/Package\ Control.sublime-settings $SUBL_PATH/Packages/User/Package\ Control.sublime-settings
 # ln -s $PWD/SublimeLinter.sublime-settings $SUBL_PATH/Packages/User/SublimeLinter.sublime-settings
+
+
+
+
+
 
 zsh ~/.zshrc
 
