@@ -55,8 +55,8 @@ git config --global core.editor "code --wait"
 # fi
 
 # # vscode
-ln -s $PWD/VSCode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-ln -s $PWD/VSCode/snippets/ ~/Library/Application\ Support/Code/User/snippets
+#ln -s $PWD/VSCode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+#ln -s $PWD/VSCode/snippets/ ~/Library/Application\ Support/Code/User/snippets
 # ln -s $PWD/VSCode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 
 
