@@ -38,7 +38,7 @@
   m = checkout master
 
   # Removes a file from the index
-  unstage = reset HEAD --
+  rh = reset HEAD --
 
 [help]
   autocorrect = 1
