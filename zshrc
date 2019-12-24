@@ -53,6 +53,9 @@ load-nvmrc() {
 type -a nvm > /dev/null && add-zsh-hook chpwd load-nvmrc
 type -a nvm > /dev/null && load-nvmrc
 
+# Anaconda binaries (python, pip, conda, jupyter, pytest, pylint etc.)
+export PATH="/anaconda3/bin:${HOME}/anaconda3/bin:${PATH}"
+
 # Rails and Ruby uses the local `bin` folder to store binstubs.
 # So instead of running `bin/rails` like the doc says, just run `rails`
 # Same for `./node_modules/.bin` and nodejs

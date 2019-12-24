@@ -5,7 +5,7 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 # Quickly serve the current directory as HTTP
 alias serve='ruby -run -e httpd . -p 8000' # Or python -m SimpleHTTPServer :)
 
-#lifen
+# lifen
 alias rwb="yarn start:web"
 alias rdk="yarn start:watch"
 alias gcm="git commit -S -m"

@@ -58,6 +58,7 @@
 [user]
 	email = jbcamaret@lifen.fr
 	name = Jean-Baptiste Camaret
+	signingkey = 854FB61DA4CC1A29FD73CBC1044F83A9EA0606EA
 
 [diff]
     tool = default-difftool
@@ -66,3 +67,5 @@
     cmd = code --wait --diff $LOCAL $REMOTE
 [pull]
 	rebase = true
+[commit]
+	gpgsign = true
