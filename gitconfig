@@ -24,12 +24,12 @@
   stat = !git --no-pager diff --stat
   tree     = log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) - %C(green)(%ai%C(reset) %C(green)%ar)%C(reset) %s%C(reset) %C(dim blue)- %an%C(reset)%C(yellow)%d%C(reset)' --all
   tree-fat = log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) - %C(cyan)%aD%C(reset) %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)%n''          %s%C(reset) %C(dim blue)- %an%C(reset)' --all
+  l = log --pretty=oneline --abbrev-commit
+    # http://www.jukie.net/bart/blog/pimping-out-git-log
+  lg = log --graph --all --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
 
   # Clean merged branches
   sweep = !git branch --merged master | grep -v 'master$' | xargs git branch -d && git remote prune origin
-
-  # http://www.jukie.net/bart/blog/pimping-out-git-log
-  lg = log --graph --all --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
 
   # Serve local repo. http://coderwall.com/p/eybtga
   # Then other can access via `git clone git://#{YOUR_IP_ADDRESS}/
