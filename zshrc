@@ -1,10 +1,17 @@
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 ZSH=$HOME/.oh-my-zsh
 
 # You can change the theme with another one from https://github.com/robbyrussell/oh-my-zsh/wiki/themes
 ZSH_THEME="robbyrussell"
 
+<<<<<<< HEAD
 # Useful oh-my-zsh plugins
 plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search pyenv git-auto-fetch)
+=======
+# Useful oh-my-zsh plugins for Le Wagon bootcamps
+plugins=(git gitfast git-auto-fetch last-working-dir common-aliases sublime zsh-syntax-highlighting history-substring-search)
+>>>>>>> 06066b1 (added git auto fetch)
 
 # (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
@@ -21,6 +28,7 @@ unalias lt # we need `lt` for https://github.com/localtunnel/localtunnel
 export PATH="${HOME}/.rbenv/bin:${PATH}" # Needed for Linux/WSL
 type -a rbenv > /dev/null && eval "$(rbenv init -)"
 
+<<<<<<< HEAD
 # Load pyenv (to manage your Python versions)
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 type -a pyenv > /dev/null && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)" && RPROMPT+='[🐍 $(pyenv_prompt_info)]'
@@ -53,6 +61,8 @@ load-nvmrc() {
 type -a nvm > /dev/null && add-zsh-hook chpwd load-nvmrc
 type -a nvm > /dev/null && load-nvmrc
 
+=======
+>>>>>>> 06066b1 (added git auto fetch)
 # Anaconda binaries (python, pip, conda, jupyter, pytest, pylint etc.)
 export PATH="/anaconda3/bin:${HOME}/anaconda3/bin:${PATH}"
 
@@ -67,9 +77,17 @@ export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
 # Encoding stuff for the terminal
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+<<<<<<< HEAD
 
 export BUNDLER_EDITOR=code
 export EDITOR=code
 
 # Set ipdb as the default Python debugger
 export PYTHONBREAKPOINT=ipdb.set_trace
+=======
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+eval "$(rbenv init -)"
+>>>>>>> 06066b1 (added git auto fetch)
