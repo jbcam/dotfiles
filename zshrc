@@ -1,3 +1,5 @@
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 ZSH=$HOME/.oh-my-zsh
 
 # You can change the theme with another one:
@@ -5,7 +7,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # Useful oh-my-zsh plugins for Le Wagon bootcamps
-plugins=(git gitfast last-working-dir common-aliases sublime zsh-syntax-highlighting history-substring-search)
+plugins=(git gitfast git-auto-fetch last-working-dir common-aliases sublime zsh-syntax-highlighting history-substring-search)
 
 # Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
@@ -17,10 +19,6 @@ unalias rm # No interactive rm by default (brought by plugins/common-aliases)
 # Load rbenv if installed (To manage your Ruby versions)
 export PATH="${HOME}/.rbenv/bin:${PATH}"
 type -a rbenv > /dev/null && eval "$(rbenv init -)"
-
-# Load nvm if installed (To manage your Node versions)
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
 
 # Anaconda binaries (python, pip, conda, jupyter, pytest, pylint etc.)
 export PATH="/anaconda3/bin:${HOME}/anaconda3/bin:${PATH}"
@@ -37,3 +35,7 @@ export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+eval "$(rbenv init -)"
