@@ -36,6 +36,8 @@
   serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
 
   m = checkout master
+  p = push origin headf origin head
+  pf = push -
 
   # Removes a file from the index
   rh = reset HEAD --
@@ -55,7 +57,7 @@
 
 [diff]
     tool = default-difftool
-    
+
 [difftool "default-difftool"]
     cmd = code --wait --diff $LOCAL $REMOTE
 [pull]
