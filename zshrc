@@ -36,7 +36,43 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+export GITHUB_NPM_TOKEN=$(cat ~/.npmrc | sed 's/.*authToken=\(.*\)/\1/')
+
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 eval "$(rbenv init -)"
 export PATH=/Users/jeanbaptistecamaret/bin:$PATH
+
+
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use
+  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+
+up() {
+  if [ -f "bin/update" ]; then
+    bin/update
+  else
+    if [[ $(git branch | grep develop) ]]; then
+      BRANCH='develop'
+    elif [[ $(git branch | grep main) ]]; then
+      BRANCH='main'
+    else
+      BRANCH='master'
+    fi;
+    git checkout $BRANCH && git pull
+    if [ -f "yarn.lock" ]; then
+      yarn
+    fi;
+  fi;
+}
