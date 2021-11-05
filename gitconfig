@@ -13,6 +13,7 @@
   pager = less -FRSX
 	editor = code --wait
 	attributesfile = /Users/jeanbaptistecamaret/.gitattributes
+	ignorecase = false
 
 [alias]
   co = checkout

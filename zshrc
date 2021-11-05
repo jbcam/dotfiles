@@ -77,3 +77,24 @@ export EDITOR=code
 export PYTHONBREAKPOINT=ipdb.set_trace
 
 
+# lifen token
+export GITHUB_NPM_TOKEN=$(cat ~/.npmrc | sed 's/.*authToken=\(.*\)/\1/')
+
+# update repo script
+up() {
+  if [ -f "bin/update" ]; then
+    bin/update
+  else
+    if [[ $(git branch | grep develop) ]]; then
+      BRANCH='develop'
+    elif [[ $(git branch | grep main) ]]; then
+      BRANCH='main'
+    else
+      BRANCH='master'
+    fi;
+    git checkout $BRANCH && git pull
+    if [ -f "yarn.lock" ]; then
+      yarn
+    fi;
+  fi;
+}
