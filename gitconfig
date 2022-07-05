@@ -50,10 +50,17 @@
 
 [branch "master"]
   mergeoptions = --no-edit
+
+[pull]
+  rebase = true
+
+[init]
+  defaultBranch = master
+
 [user]
 	email = jbcamaret@lifen.fr
-	name = Jean Baptiste Camaret
-	signingkey = 7A47CE4A420F8103ABA8C398FDEF8C84DECE796D
+	name = Jean-Baptiste Camaret
+	signingkey = 854FB61DA4CC1A29FD73CBC1044F83A9EA0606EA
 
 [diff]
     tool = default-difftool
