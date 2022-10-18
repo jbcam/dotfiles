@@ -63,6 +63,8 @@ export PATH="/anaconda3/bin:${HOME}/anaconda3/bin:${PATH}"
 # Same for `./node_modules/.bin` and nodejs
 export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
 
+export PATH="${PATH}:`yarn global bin`"
+
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
