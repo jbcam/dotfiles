@@ -1,12 +1,8 @@
-# Get External IP / Internet Speed
+    # Get External IP / Internet Speed
 alias myip="curl https://ipinfo.io/json" # or /ip for plain-text ip
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 
 # Quickly serve the current directory as HTTP
-<<<<<<< HEAD
 alias serve='ruby -run -e httpd . -p 8000'  # Or python -m SimpleHTTPServer :)
-=======
-alias serve='ruby -run -e httpd . -p 8000' # Or python -m SimpleHTTPServer :)
->>>>>>> lewagon-master
 
 alias gcm="git commit -S -m"
