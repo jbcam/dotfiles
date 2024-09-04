@@ -101,5 +101,13 @@ up() {
     if [ -f "yarn.lock" ]; then
       yarn
     fi;
+    if [ -f "poetry.lock" ]; then
+      poetry run inv update-deps
+    fi;
   fi;
 }
+
+export PATH=$PATH:$HOME/bin
+
+
+source "$HOME/.zprofile.d/clifen.zsh"
