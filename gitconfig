@@ -35,7 +35,7 @@
   # Clean merged branches (adapted from https://stackoverflow.com/a/6127884/14870317)
   sweep = !git branch --merged $(git defaultBranch) | grep -E -v "$(git defaultBranch)$" | xargs -r git branch -d && git remote prune origin
 
-  prune-squashed = "!f() { git checkout -q master && git for-each-ref refs/heads/ '--format=%(refname:short)' | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse \"$branch^{tree}\") -p $mergeBase -m _)) == \"-\"* ]] && git branch -D $branch; done; }; f"
+  prune-squashed = "!f() { git checkout -q $(git defaultBranch) && git for-each-ref refs/heads/ '--format=%(refname:short)' | while read branch; do mergeBase=$(git merge-base $(git defaultBranch) $branch) && [[ $(git cherry $(git defaultBranch) $(git commit-tree $(git rev-parse \"$branch^{tree}\") -p $mergeBase -m _)) == \"-\"* ]] && git branch -D $branch; done; }; f"
 
   # Serve local repo. http://coderwall.com/p/eybtga
   # Then other can access via `git clone git://#{YOUR_IP_ADDRESS}/
@@ -65,9 +65,7 @@
   defaultBranch = master
 
 [user]
-	email = jbcamaret@lifen.fr
 	name = Jean-Baptiste Camaret
-	signingkey = 854FB61DA4CC1A29FD73CBC1044F83A9EA0606EA
 
 [diff]
     tool = default-difftool
@@ -77,4 +75,4 @@
 [pull]
 	rebase = true
 [commit]
-	gpgsign = true
+	gpgsign = false
