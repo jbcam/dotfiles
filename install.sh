@@ -4,21 +4,33 @@
 # exists and if it's a 'real' file, ie not a symlink
 backup() {
   target=$1
-  if [ -e "$target" ]; then
-    if [ ! -L "$target" ]; then
-      mv "$target" "$target.backup"
-      echo "-----> Moved your old $target config file to $target.backup"
-    fi
+  # If there's a symlink at target, remove it. If there's a real file/dir, move it to target.backup
+  if [ -L "$target" ]; then
+    rm "$target"
+    echo "-----> Removed existing symlink $target"
+  elif [ -e "$target" ]; then
+    mv "$target" "$target.backup"
+    echo "-----> Moved your old $target config file to $target.backup"
   fi
 }
 
 symlink() {
   file=$1
   link=$2
-  if [ ! -e "$link" ]; then
-    echo "-----> Symlinking your new $link"
-    ln -s $file $link
+  # Ensure parent dir exists for the link
+  parent_dir=$(dirname "$link")
+  if [ ! -d "$parent_dir" ]; then
+    mkdir -p "$parent_dir"
   fi
+  # If a symlink already exists, remove it. If a real file exists, back it up.
+  if [ -L "$link" ]; then
+    rm "$link"
+    echo "-----> Removed existing symlink $link"
+  elif [ -e "$link" ]; then
+    backup "$link"
+  fi
+  ln -s "$file" "$link"
+  echo "-----> Symlinked $link -> $file"
 }
 
 # For all files `$name` in the present folder except `*.sh`, `README.md`, `settings.json`,
